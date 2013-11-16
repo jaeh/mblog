@@ -1,0 +1,176 @@
+/* variable definitions here pl0x */
+
+maxwidth = 800px
+minwidth = 300px
+
+border-radius()
+  -webkit-border-radius arguments
+  -moz-border-radius arguments
+  border-radius arguments
+
+/* reset.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video
+  margin 0
+  padding 0
+  border 0
+  font-size 100%
+  vertical-align top
+  //box-sizing border-box
+  //-webkit-box-sizing border-box
+  //-moz-box-sizing border-box
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section
+  display block
+
+body
+  line-height 1
+
+ol, ul
+  list-style none
+
+ul.sub
+  background none repeat scroll 0 0 #008000
+  border-radius(0 0 5px 5px)
+  display none
+  padding 5px 5px 5px 0
+  position absolute
+  right 10px
+
+blockquote, q
+  quotes none
+
+blockquotebefore, blockquoteafter,
+qbefore, qafter
+  content ''
+  content none
+
+table
+  border-collapse collapse
+  border-spacing 0
+
+/****************** custom css styles *********************/
+@font-face
+  font-family ubuntu
+  src url(/font/Ubuntu-C.ttf)
+  font-style normal
+
+body
+  font 23px ubuntu, sans-serif
+  padding 0 20px
+  font-size 19px
+  max-width maxwidth
+  min-width minwidth
+  margin 0 auto
+
+input, textarea, keygen, select, button
+  font 23px ubuntu, sans-serif
+
+a
+  color green
+  text-decoration none
+
+a:hover
+  color lightgreen
+
+
+h1
+  font-size 1.5em
+  margin 10px 0
+h2
+  font-size 1.3em
+  margin 10px 0 5px
+h3
+  font-size 1.1em
+  margin 5px 0
+h4
+  font-size 1em
+
+lh
+  font-size 1.3em
+  margin 10px 0 5px
+  display block
+
+input, textarea 
+  border-radius(5px)
+  padding 0 5px
+
+.float-left
+  float left
+.float-right
+  float right
+.clear-both
+  clear both
+
+header.main
+  padding 20px 0 50px
+
+  #logo
+    float left
+    font-size 25px
+    color green
+
+  ul
+    float right
+
+    li
+      list-style none
+      display inline
+      padding 0 0 0 15px
+
+#content
+  clear both
+  float left
+  padding 0 5% 0 0
+  width 75%
+
+
+aside.main
+  float left
+  width 20%
+
+footer.main
+  clear both
+
+form
+  vertical-align top
+
+  .fields
+    width 100%
+    margin 10px 0 5px
+
+    input, textarea
+      width 100%
+      clear both
+
+
+.error
+  color red
+
+@media screen and (max-width: 500px)
+  #content
+    width 100%
+    display block
+    padding 0
+    clear both
+
+  aside.main
+    width 100%
+    display block
+    clear both
+    margin 20px 0 0
+
+

@@ -1,0 +1,8 @@
+div.fields
+  label(for='link[category]') category:
+  select(type='option', name='link[category]')
+    for cat in categories
+      - checked = false
+      if cat.slug === 'default'
+        - checked = true
+      option(value=cat.slug, checked= checked)= cat.name

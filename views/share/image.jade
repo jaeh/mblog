@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  form(action='/share/image', method='post')
+    fieldset
+      legend 
+        | add an image to your collection: 
+        | (blank/unchanged fields will be ignored)
+
+      if errors
+        for error in errors
+          span.error= error
+
+      div.fields
+        //label(for='image[url]') url:
+        input(type='text', value='url', name='image[url]', data-default='url')
+
+      div.fields
+        //label(for='image[title]') title:
+        input(type='text', value='title', name='image[title]', data-default='title')
+
+      div.fields
+        //label(for='image[desc]') description:
+        textarea(name='image[desc]', data-default='description') description
+
+      div.fields
+        //label(for='image[uploader]') uploader:
+        input(type='text', value='uploader', name='image[uploader]', data-default='uploader')
+
+      if categories
+        include categories
+
+      div
+        input(type='submit', value='submit image')

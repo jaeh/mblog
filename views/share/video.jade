@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  form(action='/share/video', method='post')
+    fieldset
+      legend 
+        | add a video to your collection: 
+        | (blank/unchanged fields will be ignored)
+
+      if errors
+        for error in errors
+          span.error= error
+
+      div.fields
+        input(type='text', value='url', name='video[url]', data-default='url')
+
+      div.fields
+        textarea(name='video[desc]', data-default='description') description
+
+      div.fields
+        input(type='text', value='uploader', name='video[uploader]', data-default='uploader')
+
+      if categories
+        include categories
+
+      div
+        input(type='submit', value='submit video')
+

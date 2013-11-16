@@ -1,0 +1,26 @@
+doctype 5
+html
+  head
+    title &micro;blog
+    link(rel='stylesheet', href='/css/main.css')
+  body
+    div#wrapper
+      header.main
+        div#logo &micro;blog
+        nav
+          ul
+            li
+              a(href='/share') share
+            li
+              a(href='/') links
+
+      div#content
+        block content
+
+      aside.main
+        block aside
+
+      footer.main 
+        a(href='https://metalab.at') created @ metalab.at
+
+    script(src='/js/main.js')

@@ -1,0 +1,17 @@
+extends ../layout
+
+
+block content
+
+block aside
+  form(action='/share', method='post')
+    fieldset
+      legend add a new category:
+      if caterror
+        for error in caterror
+          span.error= error
+
+      div.fields
+        input(type='text', value='name', name='category[name]', data-default='name')
+      div
+        input(type='submit', value='add category')
