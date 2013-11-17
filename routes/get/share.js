@@ -4,26 +4,17 @@ var path = require('path')
   , dbs = require(path.join(__dirname, '..', '..', 'db'));
 
 exports.index = function (req, res, next) {
-  dbs.categories.find({}, function (err, categories) { 
-    //~ console.log('res.locals.errors = ', res.locals.errors);
-    res.render('share/index', {categories: categories});
-  });
+  res.render('share/index');
 }
 
 exports.image = function (req, res, next) {
-  dbs.categories.find({}, function (err, categories) {
-    res.render('share/image', {categories: categories});
-  });
+  res.render('share/image');
 }
 
 exports.link = function (req, res, next) {
-  dbs.categories.find({}, function (err, categories) {
-    res.render('share/link', {categories: categories});
-  });
+  res.render('share/link');
 }
 
 exports.video = function (req, res, next) {
-  dbs.categories.find({}, function (err, categories) {
-    res.render('share/video', {categories: categories});
-  });
+  res.render('share/video');
 }

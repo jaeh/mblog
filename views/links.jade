@@ -5,34 +5,12 @@ block content
 
   ul.links.list
     for link in links
-
       li
         if link.type === 'image'
-          img(src=link.url, title= link.title, width='100%')
-        
-          if link.desc
-            div.desc= link.desc
+          include templates/image
 
         else if link.type === 'video'
-          video(id='testing')
-        
+          include templates/video
+
         else
-          a(href=link.url)= link.text
-          
-          if link.uploader
-            div.uploader= link.uploader
-          if link.desc
-            div.desc= link.desc
-          if link.category
-            div.category
-              span.title category: 
-              span.category= link.category
-
-
-block aside
-  ul
-    lh categories
-
-    for cat in categories
-      li
-        a(href= '/' + cat.slug + '/links')= cat.name
+          include templates/link

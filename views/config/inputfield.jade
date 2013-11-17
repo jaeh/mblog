@@ -1,0 +1,13 @@
+- var confKey = 'config[';
+- if (key) { confKey += k + '][' + key;}
+- else { confKey += k; }
+- confKey += ']';
+
+div.fields
+  label(for= confKey + '[val]')= key || k
+  if item.type === 'boolean'
+    include inputs/boolean
+  else if item.type === 'path' || item.type === 'string'
+    include inputs/text
+  else if item.type === 'number'
+    include inputs/number

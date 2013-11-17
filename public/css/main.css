@@ -218,6 +218,7 @@ header.main ul li {
   float: left;
   padding: 0 5% 0 0;
   width: 75%;
+  margin: 0 0 50px;
 }
 aside.main {
   float: left;
@@ -225,6 +226,7 @@ aside.main {
 }
 footer.main {
   clear: both;
+  margin: 0 0 50px;
 }
 form {
   vertical-align: top;
@@ -237,6 +239,13 @@ form .fields input,
 form .fields textarea {
   width: 100%;
   clear: both;
+}
+ul.list li {
+  margin: 20px 0 0;
+}
+ul.list li header {
+  font-size: 1.2em;
+  margin: 0 0 10px;
 }
 .error {
   color: #f00;

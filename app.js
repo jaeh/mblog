@@ -6,7 +6,7 @@
 var express = require('express')
   , path = require('path')
   , routes = require(path.join(__dirname, 'routes'))
-  , db = require(path.join(__dirname, 'db'))
+  , dbs = require(path.join(__dirname, 'db'))
   , http = require('http')
   , stylus = require('stylus')
   , config = require('./lib/config')
@@ -24,6 +24,18 @@ app.use(express.favicon(
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+
+app.use(function (req, res, next) {
+  config(function (err, conf) {
+    dbs.categories.find({}, function (err, categories) {
+      app.set('config', conf);
+      app.locals.categories = categories;
+
+      next();
+    });
+  });
+});
+
 app.use(app.router);
 app.use(stylus.middleware({
     src: path.join(__dirname, 'public')
@@ -48,6 +60,7 @@ app.get('/share/image', routes.get.share.image);
 app.get('/links', routes.get.links);
 app.get('/links/:sort', routes.get.links);
 app.get('/:category/links', routes.get.links);
+app.get('/link/:date', routes.get.link);
 
 app.get('/config', routes.get.config);
 
@@ -56,7 +69,6 @@ app.post('/share', routes.post.share.index);
 app.post('/share/link', routes.post.share.link);
 app.post('/share/video', routes.post.share.video);
 app.post('/share/image', routes.post.share.image);
-
 
 app.post('/config', routes.post.config);
 

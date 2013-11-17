@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+  header config
+
+  form(action='/config', method='post')
+    for item, k in config
+
+      if item.type === 'options'
+        header= k
+        -var items = item;
+        input(type='hidden', name='config[' + k + '][type]', value=item.type)
+
+        for item, key in items
+          if key !== 'type' && key !== '_id'
+            include inputfield
+      else
+        if k !== 'type' && k !== '_id'
+          include inputfield
+
+    input(type='submit', value='save config')

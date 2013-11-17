@@ -5,34 +5,32 @@ var path = require('path')
   , dbs = require(path.join(rootDir, 'db'));
 
 module.exports = function (req, res, next) {
-  var category = req.params.category
-    , uploader = req.params.uploader
-    , sort = req.params.sort
-    , query = {};
+  var query = {};
 
-  if (typeof category === 'string') {
-    console.log('looking for category = ' + category);
-    query.category = category;
+  if (typeof req.params.category === 'string') {
+    console.log('looking for category = ' + req.params.category);
+    query.category = req.params.category;
   }
 
-  if (typeof uploader === 'string') {
-    query.uploader = uploader;
+  if (typeof req.params.uploader === 'string') {
+    console.log('looking for uploader = ' +  req.params.uploader);
+    query.uploader = req.params.uploader;
   }
 
-  dbs.categories.find({}, function (err, categories) {
-    dbs.links.find(query, function (err, links) {
-      var sortArr = [];
+  dbs.links.find(query, function (err, links) {
+    var sortArr = ['-date'];
 
-      if (typeof sort === 'string') {
-        if (sort === 'newest') {
-          sortArr.push('date');
-        } else if (sort === 'oldest') {
-          sortArr.push('-date');
-        }
-        dbs.utils.sort(links, sortArr);
-      }
+    if (typeof req.params.sort === 'string') {
+      if (req.params.sort === 'newest') {
+        sortArr[0] = 'date';
+      } 
+      //~ else if (sort === 'oldest') {
+        //~ sortArr[0] = '-date';
+      //~ }
+    }
 
-      res.render('links', {links: links, categories: categories});
-    });
+    dbs.utils.sort(links, sortArr);
+
+    res.render('links', {links: links});
   });
 }

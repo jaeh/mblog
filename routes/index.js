@@ -9,6 +9,7 @@ var path = require('path')
   get: {
       share: require('./get/share')
     , links: require('./get/links')
+    , link: require('./get/link')
     , config: require('./get/config')
   }
   , post: {

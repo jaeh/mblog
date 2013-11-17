@@ -17,9 +17,10 @@ module.exports = function loadDB() {
   dbs = dbs || {
       links: new Datastore({filename: path.join(__dirname, 'links.db'), autoload: true })
     , categories: new Datastore({filename: path.join(__dirname, 'categories.db'), autoload: true })
-    , config: new Datastore({filename: path.join(__dirname, 'c.db'), autoload: true })
+    , config: new Datastore({filename: path.join(__dirname, 'config.db'), autoload: true })
     , utils: {
         sort: function sort(list, argls) {
+
           if (!list instanceof Array) { 
             console.log('argument 1 must be an array of items to sort');
             return list;

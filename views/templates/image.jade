@@ -1,0 +1,7 @@
+header
+  a(href= '/link/' + link.date)= link.title
+
+img(src=link.localUrl, title= link.title, width='100%')
+
+if link.desc
+  div.desc= link.desc

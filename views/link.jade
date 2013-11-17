@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  if link.type === 'image'
+    include templates/image
+
+  else if link.type === 'video'
+    include templates/video
+
+  else
+    include templates/link
