@@ -64,9 +64,10 @@ var downloadImage = function (handler, fileDirName, url, config, cb) {
 }
 
 module.exports = function (req, res, next) {
+  console.log('config = ', req.app.get('config'));
   var image = req.body.image
-    , config = app.get('configig')
-    , uploadDir = config.uploads.dir
+    , config = req.app.get('config')
+    , uploadDir = config.uploads.dir.val
     , errors = []
     , url = image.url
     , handler = url.indexOf('https') === 0 ? https : http

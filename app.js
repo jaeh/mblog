@@ -37,12 +37,12 @@ app.use(function (req, res, next) {
 });
 
 app.use(app.router);
+
 app.use(stylus.middleware({
     src: path.join(__dirname, 'public')
 }));
-app.use(express.static(path.join(__dirname, 'public')));
 
-console.log('app.get.env = ' + app.get('env'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' === app.get('env')) {
